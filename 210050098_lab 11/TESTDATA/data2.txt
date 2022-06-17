@@ -1,5 +1,0 @@
-sky
-land
-space
-water
-building
