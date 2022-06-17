@@ -1,0 +1,15 @@
+------------------------------------------------------------------------------------RANGOLI USING FLTK----------------------------------------------------------------------------------------------------
+
+	-> used fltk library fl_draw.H to access it's functions for drawing and coloring. 
+	-> used cmath library to use sin, cos functions and M_PI.
+	-> constructed a class rangoli with setk() and draw() as member functions.
+	-> the member function setk() recieves k from the user which will be the index for rangoli design.
+	-> the member function draw() contains the instructions for drawing.
+	-> as this is the common way to draw as sir discussed in class that is inside the virtual void Fl_Widget::draw().
+	
+	-> used random() to change color
+	-> a figure with 140 as length of a side gets drawn which gets overlapped by 70 and further by 35.
+	-> used fl_polygon(x,y,x1,y1,x2,y2,x3,y3) function to draw a quadrilateral
+	-> used a for loop to draw
+	-> made window resizable
+	-> made background color of window brown
