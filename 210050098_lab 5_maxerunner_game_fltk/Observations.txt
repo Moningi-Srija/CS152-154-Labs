@@ -1,0 +1,64 @@
+-----------------------------------------------------------------------------------Maze Runner Game using fltk------------------------------------------------------------------------------------------
+Roll no : 210050098
+
+----------------------------------------------------------------------------------------About the game--------------------------------------------------------------------------------------------------
+	
+	-> Named as MazeRunner, this game needs the player to help the mouse to find it's cheese crossing a maze
+	-> Firstly, time is asked to the user, so it's a self-challenging game. Try your best to make out the best in least possible time!!
+	-> Window gets close after the time gets over
+	-> Mouse is firstly placed at the start and cheese at the finish point
+	-> Mouse has to cross the maze without hitting the walls, as everytime it hits the wall
+	   an oops msg gets printed and hit cnt gets increased.
+	-> player wins if the mouse reachs the cheese before the time specified by the user.
+	-> if the time gets over before that player loses.
+	-> number of hits get mentioned at the end in terminal.
+	
+------------------------------------------------------------------------------------------About The Code------------------------------------------------------------------------------------------------
+GLOBAL VARIABLES
+	-> Windowx, Windowy, and a scale t.
+
+CLASSES CREATED
+	
+	OBJECT
+		-> This is the Parent Class of all
+		-> The Abstract class which all other classes implement
+		-> Inherited from Fl_Widget class
+		-> contains wipe() and refresh() functions which are pure.
+		
+	MAZE
+		-> contains a single variable mazesize as maze is typically a square. 
+		-> This is class which contains everything regarding maze.
+		-> draw() function contains the commands needed to draw the maze and cheese
+		-> lines drawn in white indicate start and finish
+		-> While drawing lines moved every c-ordinate by 50 to give some space in border
+		-> Instructions get printed at bottom 
+		-> cheese is created at the finish point
+		-> wipe() and refresh() functions are created, but didn't use it after in the game.
+	
+	MOUSE
+		-> used time_t to set time
+		-> created variable l as a limit with value 10
+		-> created a variable hits to store the number of times mouse hits the wall and set it to 0
+		-> a bool variable won is created to store the status of result
+		-> constructor sets the deadline using the playtime given
+		-> included maze drawing in draw() function
+		   which gets redrawed everytime
+		   this is to avoid erasing of it by touch of mouse widget
+		   made for safe side
+		-> wipe() function creates a green rectangle of equal size on it which gives an visual effect of erasing
+		-> refresh() function contains conditions, so that the mouse doesn't hit the wall
+		-> everytime it tries to hit a wall, no. of hits get increased and an oops msg gets printed in terminal
+		-> if the mouse comes near to cheese, won variable sets to true
+		-> handle function take cares of events, this function is the soul of the game
+		-> time is getting elapsed only by keyboard press
+		-> arrow keys in keyboard can be used to navigate
+		-> for every key press mouse moves 10 pixels
+		-> after time gets over, window hides 
+
+MAIN FUNCTION
+	-> a msg gets printed and asks for time needed
+	-> it takes in the value entered as playtime
+	-> a window gets created objects maze and muse gets created
+	-> window is set to green color to resemble grass
+	
+		
