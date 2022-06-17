@@ -1,0 +1,5 @@
+print
+reduce
+filter
+map
+stack

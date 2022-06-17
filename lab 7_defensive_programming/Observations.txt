@@ -1,0 +1,148 @@
+Roll no. 210050098
+Lab 7 Assertions: Defensive Programming
+
+---------------------------------------------------------------------------------------Collections.cpp-------------------------------------------------------------------------------------------------
+
+Assertions added and reasons to add
+
+	constructor
+	
+		-> line 21 assert(sz > 0) since collection size should be always positive, that is a pre-condition.
+		-> line 27 assert(card < cap) Anyways, it will be true always, but still for safety.
+		
+	pushback
+	
+		-> line 33 assert(card < cap), as there should be a place left to add a new element, this is a pre-condition to add an element.
+		-> line 34 assert(card >= 0), this is a pre-condition to add an element.
+		-> line 41 assert(S[card-1] == elem), just to make sure that right element got added.
+		
+	popback
+	
+		-> line 47 assert(card > 0), to check that there is something to pop, this is a pre-condition.
+		-> line 48 assert(card <= cap), to be more defensive.
+		-> line 55 assert(card >=0 && card < cap && S[card] == oldlast), to check that correct element got deleted
+           
+collection-failed1.cpp
+	
+	-> line 62 in int main() is Collection c(-1), it is trying to create a collection with negative size which is absurd, hence the assert statement in line 21 terminates the program
+	and an error comes
+	
+	a.out: collection-failed.cpp:21: Collection::Collection(int): Assertion `sz > 0' failed.
+	Aborted (core dumped)
+        
+collection-failed2.cpp
+
+	-> line 62 in int main() creates a collection of capacity 2 creates an array(collection) of size 2
+	-> line 63, 64 adds the elements
+	-> line 65 tries to go out of size so, the assert statement in line 33 terminates the program and an error comes.
+	
+	a.out: collection-failed2.cpp:33: void Collection::push_back(int): Assertion `card < cap' failed.
+	Aborted (core dumped)
+        
+collection-failed3.cpp
+ 
+ 	-> line 62 in int main() creates a collection of capacity 2 creates an array(collection) of size 2
+ 	-> and ther is no push_back used after that so there are no elements in the array
+ 	-> line 63 calls the pop_back() function which has no meaning since there are no elements
+ 	-> so the assert statement in line 47 terminates the program and an error comes
+ 	
+ 	a.out: collection-failed3.cpp:47: int Collection::pop_back(): Assertion `card > 0' failed.
+ 	Aborted (core dumped)
+        
+collection-correct.cpp
+
+	-> This program has all the commands in such a way that they do not fail any assertion.
+	-> For this code we get output 
+	
+	4
+	
+--------------------------------------------------------------------------------------------str2int.cpp------------------------------------------------------------------------------------------------
+
+Assertions added and reasons to add
+
+	str2int
+	
+		-> line 20 assert(i>=0 && i<=12), since the max int is 2147483647 has 10 digits and min int -2147483648 has 11, string size shouldn't exceed 11.
+		-> line 26 assert((s[a]<='9') && (s[a]>='0')), in a for loop, to check if no other characters are present.
+		-> line 34 assert((integer<INT_MAX) && (integer>INT_MIN)), will step by step when building integer from string check if the integer is in range of climits.
+		-> line 45 and line 55 assert(check%10==s[i]-'0'), to ensure that we built the correct number for positive and negative seperately.
+       	
+str2int-failed1.cpp
+
+	-> line 68 in int main() took string as "11114567778990" which has size 14 but such a large number cannot be accomodated by int so
+	-> the assert statement at line 20 fails and process gets terminated and an error comes
+	
+	a.out: str2int-failed1.cpp:20: int str2int(std::string): Assertion `length>=1 && length<=12' failed.
+	Aborted (core dumped)
+	 
+str2int-failed2.cpp
+
+	-> line 68 in int main() took string as "1a7778990", eventhough it passed assert statement at line 20, it has a character 'a' at s[1] hence
+	-> the assert statement at line 26 fails and process gets terminated and an error comes 
+	
+	a.out: str2int-failed2.cpp:26: int str2int(std::string): Assertion `(s[a]<='9') && (s[a]>='0')' failed.
+	Aborted (core dumped)
+
+str2int-failed3.cpp
+
+	-> line 68 in int main() took string as "-3147483647", which is out of range of climits as it is less than INT_MIN that is -2147483648
+	-> the assert statement at line 34 fails and process gets terminated and an error comes
+	
+	a.out: str2int-failed3.cpp:35: int str2int(std::string): Assertion `(integer<=INT_MAX) && (integer>=INT_MIN)' failed.
+	Aborted (core dumped)
+
+str2int-correct.cpp
+
+	-> line 68 in int main() took string as "-456777990"
+	-> it passess all the assert statements and we get output
+	
+	-456777990
+	
+----------------------------------------------------------------------------------------substring.cpp--------------------------------------------------------------------------------------------------
+
+Assertions added and reasons to add
+
+	find
+		
+		-> line 13 assert(str.size() >= 0), checks if string has some size
+		-> line 14 assert(str.size() >= sub.size()), checks if string is larger than or same as substring
+		-> line 35 assert(str.size() - pos >= sub.size()), it will pass anyways, as substring is a part of string, but still to be more defensive.
+		
+	substring-failed1.cpp
+	
+		-> line 47 in int main(), str = "", which means string is empty 
+		-> hence the assert statement at line 13 fails and process gets terminated we get output
+		
+		a.out: substring-failed1.cpp:13: int find(std::string, std::string): Assertion `str.size() > 0' failed.
+		Aborted (core dumped)
+	
+	substring-failed2.cpp
+	
+		-> line 47 and 48 in int main() str = "rushikeshkjoshisir", sub = "cs152-154-course-professor", since sub has more size than str
+		-> the assert statement at line 35 fails and the process gets terminated
+		
+		a.out: substring-failed2.cpp:14: int find(std::string, std::string): Assertion `str.size() >= sub.size()' failed.
+		Aborted (core dumped)
+		
+	substring-correct.cpp
+	
+		-> line 47 and 48 in int main() str = "rushikeshkjoshisir", sub = "joshi"
+		-> this passess all the assert statements and we get output
+		
+		first occurence is present from index 10 to 14
+
+--------------------------------------------------------------------------------------------THE END----------------------------------------------------------------------------------------------------
+	        
+		 
+
+	
+	
+	
+                                                                   
+       
+ 
+
+
+
+
+	

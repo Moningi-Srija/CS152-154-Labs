@@ -1,0 +1,18 @@
+Roll no : 210050098
+Program : Alchemy
+
+------------------------------------------------------------------------------------About the code--------------------------------------------------------------------------------------------------------
+  -> In the create function errorcode is taken as -1 since it can never be the index of the element 
+  -> creating new elements depends on data.c
+  
+------------------------------------------------------------------------------------Changes made----------------------------------------------------------------------------------------------------------
+
+ -> indented the code for better readability.
+ -> changed the format of comments for better readability
+ -> changed the variable name blh to errcode for better understanding
+ -> condensed the if condition in create() function 
+ -> modified the cout statements in int main
+ -> created a new function intro() to make it more organised
+ -> changed variable names for better understandng 
+ 
+
