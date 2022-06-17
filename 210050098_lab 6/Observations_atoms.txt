@@ -1,0 +1,22 @@
+/* Roll no : 210050098
+   Name : Moningi Srija */
+   
+   -----------------------------------------------------------------------------Observation About the program--------------------------------------------------------------------------------------------
+   
+   -> The program is draws the atom for the given atomic number
+   -> shells and electrons are created seperately using Fl_Box
+   -> shells are collection of many tiny boxes put around to make it look like a circle.
+   -> used Fl_Int_Input to take input.
+   -> procedural method is followed cause it is better to use it here instead of oop.
+   -> the electrons are filled in the shells one by one
+   -> nucleus is also created the same way as the shells  
+    
+   ------------------------------------------------------------------------------------Changes made-----------------------------------------------------------------------------------------------------
+   
+   -> removed ctime library, as it is not needed for this program.
+   -> added some comments for making the code more readable and understandable
+   -> indented the code for better readability and to help understanding the loops
+   -> label 1 turned it to a comment as it has no function to perform
+   -> label 2 is brought up just to make it more organised
+   -> as the value 6.28318 is used very often, assigned it to variable and used it.
+   -> label 4 created seperate functions for drawing box, electrons, shells and nucleus to make it more organised.

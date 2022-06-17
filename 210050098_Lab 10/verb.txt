@@ -1,0 +1,7 @@
+Present
+cook
+eat
+Past
+cooked
+ate
+

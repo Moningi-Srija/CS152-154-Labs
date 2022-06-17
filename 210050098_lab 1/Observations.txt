@@ -1,0 +1,4 @@
+I don't know C language, as we were taught only C++ in CS101.
+But I observed that sample.c is procedural type and sample.cpp is Object Oriented Programming type.
+I tried to write the program in procedural in program1.c and program2.c and OOP in program1.cpp and program2.cpp.
+I didn't check for whitespaces in program2.cpp. 
